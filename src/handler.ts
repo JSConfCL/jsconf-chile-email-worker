@@ -15,13 +15,17 @@ const createAirtableRecord = (body: Record<string, any>) => {
 }
 
 function simpleResponse(statusCode: number, message: string) {
+  const responseHeaders = new Headers()
+  responseHeaders.set('Access-Control-Allow-Origin', '*')
+  responseHeaders.set('Content-Type', 'application/json')
+
   return new Response(
     JSON.stringify({
       message: message,
       status: statusCode,
     }),
     {
-      headers: { 'Content-Type': 'application/json' },
+      headers: responseHeaders,
       status: statusCode,
     },
   )
