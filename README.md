@@ -1,6 +1,6 @@
 ### Authentication
 
-- `wrangler login`
+- `yarn wrangler login`
 
 ### To develop
 

@@ -5,7 +5,8 @@
   "main": "dist/worker.js",
   "scripts": {
     "build": "webpack",
-    "dev": "miniflare dist/worker.js --watch --debug",
+    "dev": "wrangler dev --env dev",
+    "old_dev": "miniflare dist/worker.js --watch --debug",
     "format": "prettier --write  '*.{json,js}' 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
     "lint": "eslint --max-warnings=0 src && prettier --check '*.{json,js}' 'src/**/*.{js,ts}' 'test/**/*.{js,ts}'",
     "test": "jest --config jestconfig.json --verbose"
@@ -20,7 +21,8 @@
     ]
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^3.0.0",
+    "@cloudflare/workers-types": "^3.14.1",
+    "@types/itty-router-extras": "^0.4.0",
     "@types/jest": "^26.0.23",
     "@types/service-worker-mock": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
@@ -38,6 +40,9 @@
     "webpack-cli": "^4.7.0"
   },
   "dependencies": {
-    "miniflare": "^2.3.0"
+    "itty-router": "^2.6.1",
+    "itty-router-extras": "^0.4.2",
+    "miniflare": "^2.3.0",
+    "wrangler": "^2.0.24"
   }
 }

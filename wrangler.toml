@@ -1,16 +1,24 @@
+main = "src/index.ts"
 name = "jsconf-chile-email-worker-1"
-type = "javascript"
-zone_id = ""
-account_id = ""
-route = ""
-workers_dev = true
+usage_model = "unbound"
+account_id = "6e3497a44104902c23f58fe79ee984b6"
 compatibility_date = "2022-03-30"
+workers_dev = true
 
 [build]
 command = "npm install && npm run build"
-[build.upload]
-format = "service-worker"
 
-[vars]
+[env.dev]
+[env.dev.vars]
+ENVIRONMENT="DEV"
+AIRTABLE_BASE_ID = "app552ftfnfYTUuup"
+AIRTABLE_TABLE_NAME = "Table 1"
+AIRTABLE_VOLUNTEERS_TABLE_NAME = "Volunteers"
+
+[env.production]
+[env.production.vars]
+ENVIRONMENT="PRODUCTION"
 AIRTABLE_BASE_ID = "appnlsAWWbvEthXBb"
 AIRTABLE_TABLE_NAME = "Table 1"
+AIRTABLE_VOLUNTEERS_TABLE_NAME = "Volunteers"
+
