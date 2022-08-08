@@ -1,22 +1,6 @@
-import { json } from 'itty-router-extras'
 import { createAirtableRecord } from '../helpers/airtable'
+import { simpleResponse } from '../helpers/responses'
 import { Env } from '../sharedTypes'
-
-function simpleResponse(statusCode: number, message: string) {
-  const responseHeaders = new Headers()
-  responseHeaders.set('Access-Control-Allow-Origin', '*')
-  responseHeaders.set('Content-Type', 'application/json')
-  return json(
-    {
-      message: message,
-      status: statusCode,
-    },
-    {
-      status: statusCode,
-      headers: responseHeaders,
-    },
-  )
-}
 
 type VolunteerApplicationRequestBody = {
   email: string
