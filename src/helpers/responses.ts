@@ -1,17 +1,16 @@
 import { json } from 'itty-router-extras'
+import { attachCorsHeader } from '../middlewares'
 
-export function simpleResponse(statusCode: number, message: string) {
-  const responseHeaders = new Headers()
-  responseHeaders.set('Access-Control-Allow-Origin', '*')
-  responseHeaders.set('Content-Type', 'application/json')
-  return json(
-    {
-      message: message,
-      status: statusCode,
-    },
-    {
-      status: statusCode,
-      headers: responseHeaders,
-    },
+export const simpleResponse = (statusCode: number, message: string) => {
+  return attachCorsHeader(
+    json(
+      {
+        message: message,
+        status: statusCode,
+      },
+      {
+        status: statusCode,
+      },
+    ),
   )
 }

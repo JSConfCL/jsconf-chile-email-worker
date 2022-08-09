@@ -9,9 +9,6 @@ export const handleCors =
       allowCredentials = false,
     } = options
 
-    console.log('request', request)
-    console.log('request', request)
-    console.log('request', request)
     if (
       request.headers.get('Origin') !== null &&
       request.headers.get('Access-Control-Request-Method') !== null
